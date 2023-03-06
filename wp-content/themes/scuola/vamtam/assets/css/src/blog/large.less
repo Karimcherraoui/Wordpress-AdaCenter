@@ -1,0 +1,163 @@
+@icon-height: 20px;
+@icon-offset: 0px;
+
+.loop-wrapper {
+	&.regular {
+		.home.blog:not(.layout-full) .page-content > &,
+		.archive:not(.layout-full) .page-content > &,
+		.search-results:not(.layout-full) .page-content > & {
+			margin: auto;
+
+			.post-row {
+				flex-flow: column;
+				align-items: flex-start;
+			}
+
+			.post-media {
+				max-width: none;
+				padding-right: 0;
+				width: 100%;
+			}
+
+			.post-content-outer {
+				width: 100%;
+			}
+
+			.list-item {
+				&:first-child {
+					.post-article .post-content-outer {
+						&.vamtam-full-width-thumb {
+							.vamtam-meta-tax.the-categories {
+								top: 0;
+							}
+						}
+					}
+				}
+
+				.post-article .post-content-outer {
+					&.vamtam-full-width-thumb {
+						.vamtam-meta-tax.the-categories {
+							position: absolute;
+							padding: 15px;
+							top: 45px;
+						}
+					}
+				}
+			}
+		}
+
+		.list-item {
+			&:first-child {
+				.post-row {
+					padding-top: 0px;
+				}
+			}
+
+			.vamtam-meta-author,
+			.vamtam-meta-date,
+			.vamtam-meta-comments,
+			.vamtam-meta-tax {
+				margin-right: 20px;
+				font-weight: 500;
+			}
+
+			.post-content-outer {
+				box-sizing: border-box;
+				order: 3;
+				flex: 12.5 1;
+				max-width: 100%;
+
+				.post-meta {
+					width: 100%;
+					margin-top: 10px;
+					margin-bottom: 0;
+				}
+
+				.post-content {
+					font-size: 16px;
+					line-height: 24px;
+				}
+			}
+
+			header h2 {
+				font-size: 31px;
+				line-height: 1.4em;
+				overflow-wrap: break-word;
+			}
+
+			.media-inner {
+				> div {
+					margin: 0;
+				}
+			}
+
+			.post-row {
+				display: flex;
+				flex-wrap: wrap;
+				padding-top: 45px;
+				padding-bottom: 45px;
+				border-bottom: 1px solid var( --vamtam-default-line-color );
+
+				.media-inner {
+					background-color: var( --vamtam-accent-color-5 );
+					transition: background .4s ease-out;
+
+					&.vamtam-has-post-thumb-shape {
+						> a {
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+						}
+					}
+
+					.vamtam-shape {
+						// Theme-dependant. Each theme should apply it's own post thumb (if supported).
+						background-image: url('data:image/svg+xml,<svg/></svg>');
+
+						position: absolute;
+						background-repeat: repeat-x;
+						left: 0;
+						bottom: 0;
+						width: 100% !important;
+						height: 26px;
+						z-index: 1000;
+					}
+
+					> img {
+						-webkit-backface-visibility: hidden;
+						transition: opacity .4s;
+					}
+				}
+
+				.navigation:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.sticky {
+			background: var( --vamtam-accent-color-5 );
+			padding: 40px;
+			border-bottom: 10px solid var( --vamtam-accent-color-1 );
+			border-radius: var( --vamtam-border-radius );
+			box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
+			box-sizing: border-box;
+
+			.post-row {
+				padding-bottom: 0;
+				border-bottom: none;
+			}
+		}
+
+		.layout-left-right & {
+			.list-item {
+				.post-media {
+					order: -1;
+					flex-basis: 100%;
+					padding-bottom: 30px;
+				}
+			}
+		}
+	}
+}
